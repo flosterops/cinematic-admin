@@ -1,0 +1,64 @@
+<div
+  class="d-flex flex-column p-4 w-100 h-100 justify-content-between align-items-center"
+>
+  <p>Create theater form</p>
+  <form
+    [formGroup]="form"
+    class="d-flex flex-column form-container w-100 h-100"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        required
+        formControlName="date"
+        [matDatepicker]="picker"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        required
+        matInput
+        [format]="24"
+        formControlName="time"
+        [ngxMatTimepicker]="timePicker"
+        placeholder="16:00"
+        readonly
+      />
+      <mat-icon matSuffix (click)="timePicker.open()"> watch_later </mat-icon>
+    </mat-form-field>
+    <ngx-mat-timepicker #timePicker></ngx-mat-timepicker>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Theater:</mat-label>
+      <mat-select [formControl]="form.controls.theater">
+        <mat-option *ngFor="let theater of data.theaters" [value]="theater.id">
+          {{ theater.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Movie:</mat-label>
+      <mat-select [formControl]="form.controls.movie">
+        <mat-option *ngFor="let movie of data.movies" [value]="movie.id">
+          {{ movie.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price:</mat-label>
+      <input required matInput formControlName="price" />
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">Create</button>
+  </form>
+</div>

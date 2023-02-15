@@ -1,0 +1,17 @@
+<div class="d-flex flex-column w-100 justify-content-center align-items-center">
+  <form
+    [formGroup]="form"
+    class="d-flex flex-column form-container"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field>
+      <mat-label>Login/Email:</mat-label>
+      <input required matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password:</mat-label>
+      <input required matInput formControlName="password" />
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">Login</button>
+  </form>
+</div>

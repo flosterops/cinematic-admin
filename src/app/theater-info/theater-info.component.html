@@ -1,0 +1,46 @@
+<div
+  class="d-flex flex-column p-4 w-100 h-100 justify-content-between align-items-center"
+>
+  <p>Edit theater form</p>
+  <form
+    [formGroup]="form"
+    class="d-flex flex-column form-container w-100 h-100"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field>
+      <mat-label>Theater name:</mat-label>
+      <input required matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Number of seats:</mat-label>
+      <input required matInput formControlName="number_of_seats" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>List of features:</mat-label>
+      <input required matInput formControlName="list_of_features" />
+    </mat-form-field>
+    <div class="d-flex justify-content-between gap-4">
+      <button class="w-100" mat-flat-button color="primary" type="submit">
+        Update
+      </button>
+      <button
+        class="w-100"
+        mat-flat-button
+        (click)="deleteTheater()"
+        color="warn"
+        type="button"
+      >
+        Delete
+      </button>
+      <button
+        class="w-100"
+        mat-flat-button
+        (click)="closeDialog()"
+        color="accent"
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

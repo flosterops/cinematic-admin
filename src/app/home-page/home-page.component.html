@@ -1,0 +1,25 @@
+<div>
+  <app-header title="Home Page"></app-header>
+  <mat-tab-group>
+    <mat-tab label="Theaters">
+      <app-theater-table
+        [theaters]="theaters"
+        (onAdd)="fetchTheaters()"
+      ></app-theater-table>
+    </mat-tab>
+    <mat-tab label="Movies">
+      <app-movie-table
+        [movies]="movies"
+        (onAdd)="fetchMovies()"
+      ></app-movie-table>
+    </mat-tab>
+    <mat-tab label="Shows">
+      <app-show-table
+        [shows]="shows"
+        [theaters]="theaters"
+        [movies]="movies"
+        (onAdd)="fetchShows()"
+      ></app-show-table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,28 @@
+<div
+  class="d-flex flex-column p-4 w-100 h-100 justify-content-between align-items-center"
+>
+  <p>Create movie form</p>
+  <form
+    [formGroup]="form"
+    class="d-flex flex-column form-container w-100 h-100"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field>
+      <mat-label>Movie name:</mat-label>
+      <input required matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Movie description:</mat-label>
+      <input required matInput formControlName="description" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Movie duration:</mat-label>
+      <input required matInput formControlName="duration" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Min age:</mat-label>
+      <input required matInput formControlName="age" />
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">Create</button>
+  </form>
+</div>
