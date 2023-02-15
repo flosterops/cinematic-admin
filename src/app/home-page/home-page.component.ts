@@ -70,8 +70,6 @@ export class HomePageComponent implements OnInit {
           price: item.price,
         };
       });
-
-      console.log(this.shows);
     });
   }
 }
